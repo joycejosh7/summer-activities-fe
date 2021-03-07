@@ -6,3 +6,7 @@ const ul = document.getElementById("activity-area")
 
 document.addEventListener("DOMContentLoaded", init)
 
+function init() {
+    getAllActivities()
+}
+
