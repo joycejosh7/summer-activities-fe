@@ -7,7 +7,26 @@
 </head>
 <body>
     <h1>Summer Activities</h1>
-    <div id="main"></div>
-    <script src="./index.js"></script>
+    <div class="activity-form">
+        <h2>Create a new activity here</h2>
+        <form id="activityform">
+            <label>Title</label>
+            <input type="text" name="title" id="activity-title">
+            <label>Creator</label>
+            <input type="text" name="creator" id="activity-creator">
+            <label>Description</label>
+            <textarea cols="25" name="mytextbox" rows="8" id="activity-description"></textarea>
+            <input type="submit" value="New Activity" id="activity-submit">
+        </form>
+    </div>
+
+    <div id="container">
+        <h2>
+            Below is a list of all your activities 
+        </h2>
+        <ul id="activity-area"> </ul>
+    </div>
+
 </body>
+    <script src="./index.js"></script>
 </html>
