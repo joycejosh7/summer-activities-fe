@@ -36,3 +36,9 @@ function getAllActivities() {
     .then(handleActivities)
 }
 
+function handleActivities(activitiesArr) {
+    activitiesArr.forEach(a => {
+        putActivityOnDom(a)
+    })
+}
+
