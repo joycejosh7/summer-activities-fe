@@ -28,3 +28,11 @@ function handleSubmit(e) {
         .then(r => r.json())
         .then(data => putActivityOnDom(data))
 }
+
+function getAllActivities() {
+    fetch(baseUrl)
+    // the result from baseURL is NOT JSON it's a String
+    .then(r => r.json())
+    .then(handleActivities)
+}
+
