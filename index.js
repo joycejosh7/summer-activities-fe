@@ -5,6 +5,8 @@ const container = document.getElementById("container")
 const ul = document.getElementById("activity-area")
 const sortButton = document.getElementById("sort")
 sortButton.addEventListener("click", handleSort)
+const searchButton = document.getElementById("searchButton")
+searchButton.addEventListener("click", handleSearch)
 
 document.addEventListener("DOMContentLoaded", init)
 
@@ -63,9 +65,24 @@ function handleSort(e) {
 
       // setting innerHTML to "" will clear out the whole tag it self and the contents that are inside of it 
       ul.innerHTML = ""
-      
+
       // allows us to use the sorted Array and for each one post it onto the dom
       sortedArray.forEach(a => {
           a.putActivityOnDom()
       })
+}
+
+function handleSearch(e) {
+    let inputValue = document.getElementById("search").value
+    let filteredArray = Activity.all.filter(a => {
+        return a.creator.toUpperCase() === inputValue.toUpperCase()
+    })
+        
+        ul.innerHTML = ""
+
+        filteredArray.forEach(a => {
+            a.putActivityOnDom()
+        })
+
+
 }
