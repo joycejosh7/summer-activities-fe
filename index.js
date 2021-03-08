@@ -33,52 +33,10 @@ function getAllActivities() {
     fetch(baseUrl)
     // the result from baseURL is NOT JSON it's a String
     .then(r => r.json())
-    .then(handleActivities)
-}
-
-function handleActivities(activitiesArr) {
-    activitiesArr.forEach(a => {
-        putActivityOnDom(a)
+    .then(data => {
+        data.forEach(a => {
+            let activity = new Activity(a.id, a.title, a.description, a.creator)
+            activity.putActivityOnDom()
+        })
     })
 }
-
-function putActivityOnDom(activity) {
-    let div = document.createElement("div")
-    let li = document.createElement("li")
-    let p1 = document.createElement("p")
-    let p2 = document.createElement("p")
-    let p3 = document.createElement("p")
-    let deleteLink = document.createElement("a")
-
-    deleteLink.dataset.id = activity.id
-    deleteLink.setAttribute("href", "#")
-    deleteLink.innerText = "Delete"
-
-    deleteLink.addEventListener("click", deleteActivity)
-    
-    p1.innerText = activity.title
-    p2.innerText = activity.description
-    p3.innerText = activity.creator
-
-    li.append(p1, p2, p3)
-    div.append(li)
-    ul.append(div)
-    div.append(deleteLink)
-}
-
-async function deleteActivity(e) {
-    e.preventDefault();
-  
-    let id = e.target.dataset.id;
-  
-    const resp = await fetch(baseUrl + "/activities/" + id, {
-      method: "DELETE"
-    })
-    const data = await resp.json();
-  
-    activities = activities.filter(function(activity){
-      return activity.id !== data.id;
-    })
-  
-    putActivityOnDom();
-  }
