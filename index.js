@@ -48,7 +48,13 @@ function putActivityOnDom(activity) {
     let p1 = document.createElement("p")
     let p2 = document.createElement("p")
     let p3 = document.createElement("p")
-    let button = document.createElement("button")
+    let deleteLink = document.createElement("a")
+
+    deleteLink.dataset.id = activity.id
+    deleteLink.setAttribute("href", "#")
+    deleteLink.innerText = "Delete"
+
+    deleteLink.addEventListener("click", deleteActivity)
     
     p1.innerText = activity.title
     p2.innerText = activity.description
@@ -57,5 +63,22 @@ function putActivityOnDom(activity) {
     li.append(p1, p2, p3)
     div.append(li)
     ul.append(div)
+    div.append(deleteLink)
 }
 
+async function deleteActivity(e) {
+    e.preventDefault();
+  
+    let id = e.target.dataset.id;
+  
+    const resp = await fetch(baseUrl + "/activities/" + id, {
+      method: "DELETE"
+    })
+    const data = await resp.json();
+  
+    activities = activities.filter(function(activity){
+      return activity.id !== data.id;
+    })
+  
+    putActivityOnDom();
+  }
