@@ -3,6 +3,8 @@ const form = document.getElementById("activityform")
 form.addEventListener("submit", handleSubmit)
 const container = document.getElementById("container")
 const ul = document.getElementById("activity-area")
+const sortButton = document.getElementById("sort")
+sortButton.addEventListener("click", handleSort)
 
 document.addEventListener("DOMContentLoaded", init)
 
@@ -39,4 +41,31 @@ function getAllActivities() {
             activity.putActivityOnDom()
         })
     })
+}
+
+function handleSort(e) {
+    let activities = Activity.all.slice()
+    let sortedArray = activities.sort(function(a, b) {
+
+        let nameA = a.title.toUpperCase(); // ignore upper and lowercase
+        let nameB = b.title.toUpperCase(); // ignore upper and lowercase
+
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+      
+        // names must be equal
+        return 0;
+      })
+
+      // setting innerHTML to "" will clear out the whole tag it self and the contents that are inside of it 
+      ul.innerHTML = ""
+      
+      // allows us to use the sorted Array and for each one post it onto the dom
+      sortedArray.forEach(a => {
+          a.putActivityOnDom()
+      })
 }
