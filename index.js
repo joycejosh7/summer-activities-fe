@@ -42,3 +42,20 @@ function handleActivities(activitiesArr) {
     })
 }
 
+function putActivityOnDom(activity) {
+    let div = document.createElement("div")
+    let li = document.createElement("li")
+    let p1 = document.createElement("p")
+    let p2 = document.createElement("p")
+    let p3 = document.createElement("p")
+    let button = document.createElement("button")
+    
+    p1.innerText = activity.title
+    p2.innerText = activity.description
+    p3.innerText = activity.creator
+
+    li.append(p1, p2, p3)
+    div.append(li)
+    ul.append(div)
+}
+
