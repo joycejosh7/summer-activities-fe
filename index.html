@@ -11,11 +11,11 @@
         <h2>Create a new activity here</h2>
         <form id="activityform">
             <label>Title</label>
-            <input type="text" name="title" id="activity-title">
+            <input type="text" onfocus="this.value=''" name="title" id="activity-title">
             <label>Creator</label>
-            <input type="text" name="creator" id="activity-creator">
+            <input type="text" onfocus="this.value=''" name="creator" id="activity-creator">
             <label>Description</label>
-            <textarea cols="25" name="mytextbox" rows="8" id="activity-description"></textarea>
+            <textarea cols="25" name="mytextbox" rows="8" onfocus="this.value=''" id="activity-description"></textarea>
             <input type="submit" value="Create New Activity" id="activity-submit">
         </form>
     </div>
