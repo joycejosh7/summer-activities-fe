@@ -7,6 +7,8 @@ const sortButton = document.getElementById("sort")
 sortButton.addEventListener("click", handleSort)
 const searchButton = document.getElementById("searchButton")
 searchButton.addEventListener("click", handleSearch)
+const randomButton = document.getElementById("random")
+randomButton.addEventListener("click", handleRandom)
 
 document.addEventListener("DOMContentLoaded", init)
 
@@ -83,6 +85,12 @@ function handleSearch(e) {
         filteredArray.forEach(a => {
             a.putActivityOnDom()
         })
+}
 
-
+function handleRandom(e) {
+    e.preventDefault()
+    let item = Activity.all[Math.floor(Math.random() * Activity.all.length)] 
+    ul.innerHTML = ""  
+    console.log(item)  
+    item.putActivityOnDom()
 }
