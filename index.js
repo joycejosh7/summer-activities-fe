@@ -32,7 +32,10 @@ function handleSubmit(e) {
         body: JSON.stringify(activityInfo)
     })
         .then(r => r.json())
-        .then(data => putActivityOnDom(data))
+        .then(a => {
+            let activity = new Activity(a.id, a.title, a.description, a.creator)
+            activity.putActivityOnDom()
+        })
 }
 
 function getAllActivities() {
