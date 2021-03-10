@@ -21,8 +21,8 @@ class Activity {
         let li = document.createElement("li")
         let p1 = document.createElement("p")
         let p2 = document.createElement("p")
-        // let deleteLink = document.createElement("a")
         let p3 = document.createElement("p")
+        // let deleteLink = document.createElement("a")
 
         // deleteLink.dataset.id = this.id
         // deleteLink.setAttribute("href", "#")
@@ -37,8 +37,8 @@ class Activity {
     
         li.append(p1, p2, p3)
         div.append(li)
-        // div.append(deleteLink)
         ul.append(div)
+        // div.append(deleteLink)
         
     }
 
