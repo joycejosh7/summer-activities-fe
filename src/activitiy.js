@@ -21,7 +21,15 @@ class Activity {
         let li = document.createElement("li")
         let p1 = document.createElement("p")
         let p2 = document.createElement("p")
+        // let deleteLink = document.createElement("a")
         let p3 = document.createElement("p")
+
+        // deleteLink.dataset.id = this.id
+        // deleteLink.setAttribute("href", "#")
+        // deleteLink.innerText = "Delete"
+
+        // deleteLink.addEventListener("click", deleteActivity)
+
         
         p1.innerText = this.title
         p2.innerText = this.description
@@ -29,6 +37,14 @@ class Activity {
     
         li.append(p1, p2, p3)
         div.append(li)
+        // div.append(deleteLink)
         ul.append(div)
+        
     }
+
+    // function deleteActivity(e) {
+    //     e.preventDefault()
+
+    //     debugger
+    // }
 }
