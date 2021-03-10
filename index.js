@@ -87,10 +87,38 @@ function handleSearch(e) {
         })
 }
 
-function handleRandom(e) {
-    e.preventDefault()
-    let item = Activity.all[Math.floor(Math.random() * Activity.all.length)] 
-    ul.innerHTML = ""  
-    console.log(item)  
-    item.putActivityOnDom()
+// function handleRandom(e) {
+//     e.preventDefault()
+//     let item = Activity.all[Math.floor(Math.random() * Activity.all.length)] 
+//     ul.innerHTML = ""    
+//     item.putActivityOnDom()
+// }
+
+function handleRandom() {
+    fetch(baseUrl)
+    .then(r => r.json())
+    .then(data => {
+            let item = Activity.all[Math.floor(Math.random() * Activity.all.length)]
+            ul.innerHTML = ""
+            item.putActivityOnDom() 
+        })
+    
 }
+
+
+
+// function deleteActivity(e) {
+//     e.preventDefault()
+
+//     let id = e.target.dataset.id
+
+//     fetch(baseUrl + `/${this.id}`, {
+//         method: "DELETE"
+//     })
+//     .then (function(resp) {
+//         return resp.json()
+//     })
+//     .then(function(data) {
+//         debugger
+//     })
+// }
