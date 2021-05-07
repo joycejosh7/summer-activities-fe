@@ -23,6 +23,8 @@ function handleSubmit(e) {
         creator: e.target[1].value,
         description: e.target[2].value
     }
+
+    e.target.reset()
     // by default Fetch makes a GET request, if you want to make any other request you HAVE to tell it what kind
     fetch(baseUrl, {
         method: "POST",
@@ -82,46 +84,60 @@ function handleSearch(e) {
     let filteredArray = Activity.all.filter(a => {
         return a.creator.toUpperCase() === inputValue.toUpperCase()
     })
-        
+    
         ul.innerHTML = ""
 
         filteredArray.forEach(a => {
             a.putActivityOnDom()
         })
+        
 }
-
-// function handleRandom(e) {
-//     e.preventDefault()
-//     let item = Activity.all[Math.floor(Math.random() * Activity.all.length)] 
-//     ul.innerHTML = ""    
-//     item.putActivityOnDom()
-// }
 
 function handleRandom() {
-    fetch(baseUrl)
-    .then(r => r.json())
-    .then(data => {
-            let item = Activity.all[Math.floor(Math.random() * Activity.all.length)]
-            ul.innerHTML = ""
-            item.putActivityOnDom() 
-        })
-    
+    let item = Activity.all[Math.floor(Math.random() * Activity.all.length)] 
+    ul.innerHTML = ""    
+    item.putActivityOnDom()
 }
 
-
-
-// function deleteActivity(e) {
-//     e.preventDefault()
-
-//     let id = e.target.dataset.id
-
-//     fetch(baseUrl + `/${this.id}`, {
-//         method: "DELETE"
-//     })
-//     .then (function(resp) {
-//         return resp.json()
-//     })
-//     .then(function(data) {
-//         debugger
-//     })
+// function handleRandom() {
+//     fetch(baseUrl)
+//     .then(r => r.json())
+//     .then(data => {
+//         console.log(data)
+//             let item = Activity.all[Math.floor(Math.random() * Activity.all.length)]
+//             ul.innerHTML = ""
+//             item.putActivityOnDom() 
+//         })
+    
 // }
+
+function deleteActivity(e) {
+    e.preventDefault()
+
+    let id = e.target.dataset.id
+    
+    fetch(baseUrl + `/${id}`, {
+        method: "DELETE",
+
+    })
+    
+    .then (resp => {
+        return resp.json()
+    })
+    .then(data => {
+        const activity = Activity.all.find(activity => activity.id === data.id)
+        activity.container.remove()
+        // Activity.all =  Activity.all.filter(function(active){
+        //     return active.id !== data.id
+        // })   
+        // ul.innerHTML = ""
+
+        // Activity.all.forEach(a => {
+        //     a.putActivityOnDom()
+        // })
+        
+        })
+        
+        // init()
+}
+
