@@ -9,6 +9,9 @@
     column-count: auto;
 }
 
+#container h2{
+    color: white;
+}
 
 #activity-area{
     border: black solid
@@ -18,8 +21,9 @@ li {
     border: tan;
     list-style-type: none;
     background-color: rgb(199, 138, 58);
-    border-radius: 40%;
-    
+    border-radius: 40px;
+    align-content: center;
+    text-align: center;
 }
 
 p {
@@ -28,7 +32,18 @@ p {
 }
 
 h1 {
-    background-color: yellow;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    color: white;
+    background-color: cornflowerblue;
+    left: 300px;
+    text-align: center;
+}
+
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    
 }
 
 body {
@@ -36,3 +51,11 @@ body {
     background-color: yellow;
 }
 
+a{
+    color: red;
+    font-size: large;
+    font-weight: 200;
+    border: solid red;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
