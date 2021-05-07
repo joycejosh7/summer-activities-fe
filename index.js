@@ -5,8 +5,8 @@ const container = document.getElementById("container")
 const ul = document.getElementById("activity-area")
 const sortButton = document.getElementById("sort")
 sortButton.addEventListener("click", handleSort)
-const searchButton = document.getElementById("searchButton")
-searchButton.addEventListener("click", handleSearch)
+// const searchButton = document.getElementById("searchButton")
+// searchButton.addEventListener("click", handleSearch)
 const randomButton = document.getElementById("random")
 randomButton.addEventListener("click", handleRandom)
 
@@ -79,19 +79,19 @@ function handleSort(e) {
       })
 }
 
-function handleSearch(e) {
-    let inputValue = document.getElementById("search").value
-    let filteredArray = Activity.all.filter(a => {
-        return a.creator.toUpperCase() === inputValue.toUpperCase()
-    })
+// function handleSearch(e) {
+//     let inputValue = document.getElementById("search").value
+//     let filteredArray = Activity.all.filter(a => {
+//         return a.creator.toUpperCase() === inputValue.toUpperCase()
+//     })
     
-        ul.innerHTML = ""
+//         ul.innerHTML = ""
 
-        filteredArray.forEach(a => {
-            a.putActivityOnDom()
-        })
+//         filteredArray.forEach(a => {
+//             a.putActivityOnDom()
+//         })
         
-}
+// }
 
 function handleRandom() {
     let item = Activity.all[Math.floor(Math.random() * Activity.all.length)] 
@@ -99,17 +99,6 @@ function handleRandom() {
     item.putActivityOnDom()
 }
 
-// function handleRandom() {
-//     fetch(baseUrl)
-//     .then(r => r.json())
-//     .then(data => {
-//         console.log(data)
-//             let item = Activity.all[Math.floor(Math.random() * Activity.all.length)]
-//             ul.innerHTML = ""
-//             item.putActivityOnDom() 
-//         })
-    
-// }
 
 function deleteActivity(e) {
     e.preventDefault()
@@ -127,17 +116,7 @@ function deleteActivity(e) {
     .then(data => {
         const activity = Activity.all.find(activity => activity.id === data.id)
         activity.container.remove()
-        // Activity.all =  Activity.all.filter(function(active){
-        //     return active.id !== data.id
-        // })   
-        // ul.innerHTML = ""
-
-        // Activity.all.forEach(a => {
-        //     a.putActivityOnDom()
-        // })
         
         })
-        
-        // init()
 }
 
