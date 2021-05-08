@@ -1,6 +1,8 @@
+
+
 class Activity {
     static all = []
-
+    
     constructor(id, title, description, creator) {
         this.id = id
         this.title = title
@@ -8,12 +10,13 @@ class Activity {
         this.creator = creator
         Activity.all.push(this)
     }
-
-    static handleActivities(activitiesArr) {
-        activitiesArr.forEach(a => {
-            putActivityOnDom(a)
-        })
-    }
+    
+    // static handleActivities(activitiesArr) {
+    //     debugger
+    //     activitiesArr.forEach(a => {
+    //         putActivityOnDom(a)
+    //     })
+    // }
 
     putActivityOnDom() {
 
@@ -32,9 +35,9 @@ class Activity {
         deleteLink.addEventListener("click", deleteActivity)
 
         
-        p1.innerText = this.title
-        p2.innerText = this.description
-        p3.innerText = this.creator
+        p1.innerText = `Title: ${this.title}`
+        p2.innerText = `Description: ${this.description}`
+        p3.innerText = `Creator:${this.creator}`
     
         li.append(p1, p2, p3)
         div.append(li)
@@ -42,4 +45,5 @@ class Activity {
         div.append(deleteLink)
         
     }
+
 }
