@@ -4,9 +4,12 @@
 
 #container{
     background-color: green;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS8y8kzlQM2iw6vI8-3XnX3T__ciPwgwIQXQ&usqp=CAU);
     text-align: center;
     text-decoration: none;
     column-count: auto;
+    }
+
 }
 
 #container h2{
@@ -14,20 +17,23 @@
 }
 
 #activity-area{
-    border: black solid
+    border: green
 }
 
 li {
     border: tan;
     list-style-type: none;
     background-color: rgb(199, 138, 58);
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTyC-l77olTcjLtCLsUeHAxg7rYtTlkyszLw&usqp=CAU);
     border-radius: 40px;
     align-content: center;
     text-align: center;
+    filter: drop-shadow(0px 1px 3px black);
 }
 
 p {
     font-size: 15px;
+    font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -36,6 +42,7 @@ h1 {
     font-size: 50px;
     color: white;
     background-color: cornflowerblue;
+   
     left: 300px;
     text-align: center;
 }
@@ -48,7 +55,9 @@ h2{
 
 body {
     column-count: auto;
-    background-color: yellow;
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: yellow; */
+    background-image:url(https://cff2.earth.com/uploads/2017/11/08174338/How-ice-forms-inside-of-clouds.jpg);
 }
 
 a{
@@ -58,4 +67,26 @@ a{
     border: solid red;
     background-color: black;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttonDiv{
+    display: flex;
+    justify-content: space-evenly;
+    
+    width: auto;
+}
+
+button{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    border:grey;
+    font-size: 15px;
+}
+
+input#activity-submit{
+    height: 30px;
+    font-size: 16px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    border:grey; 
 }
