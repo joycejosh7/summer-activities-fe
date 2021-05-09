@@ -11,25 +11,31 @@
     <div  class="activity-form">
         <h2>Create a new activity here</h2>
         <form id="activityform">
-            <label>Title</label>
-            <input type="text" onfocus="this.value=''" name="title" id="activity-title">
-            <label>Creator</label>
-            <input type="text" onfocus="this.value=''" name="creator" id="activity-creator">
-            <label>Description</label>
-            <textarea cols="25" name="mytextbox" rows="4" onfocus="this.value=''" id="activity-description"></textarea>
+            <label style="padding: 5px">Title</label>
+            <input style="padding: 5px; margin-right: 25px"type="text" onfocus="this.value=''" name="title" id="activity-title">
+            <label style="padding: 5px">Creator</label>
+            <input style="padding: 5px; margin-right: 25px" type="text" onfocus="this.value=''" name="creator" id="activity-creator">
+            <label style="padding: 5px">Description</label>
+            <textarea style="padding: 5px; margin-right: 25px" cols="25" name="mytextbox" rows="3" onfocus="this.value=''" id="activity-description"></textarea>
             <input type="submit" value="Create New Activity" id="activity-submit">
         </form>
     </div>
-    <br>
-    <!-- <div id="search-div" >
-        <input type="text" id="search">
-        <button id="searchButton">Search by Creator Name</button>
+    <br><br>
+
+    <div class="buttonDiv">
+        <!-- <div id="search-div" >
+            <input type="text" id="search">
+            <button id="searchButton">Search by Creator Name</button>
+        </div>
+        <br> -->
+        <button id="sort">List View</button><br>
+        
+        <br>
+        <button id="random">Random Activity</button><br>
+
+        <!-- <br>
+        <button id="showAll">Show All Activities</button> -->
     </div>
-    <br> -->
-    <button id="sort">Sort By Title Alphabetically</button><br>
-    
-    <br>
-    <button id="random">Random Activity</button>
 
     <div id="container">
         <h2>

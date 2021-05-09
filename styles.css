@@ -1,23 +1,27 @@
-#activityform{
+#activityform {
     display: inline-block; 
+    justify-content: center;
+    display: flex;
+    
 }
 
-#container{
+#container {
     background-color: green;
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS8y8kzlQM2iw6vI8-3XnX3T__ciPwgwIQXQ&usqp=CAU);
     text-align: center;
     text-decoration: none;
     column-count: auto;
-    }
-
+    padding-bottom: 35px;
 }
 
-#container h2{
+#container h2 { 
     color: white;
+    padding-top: 10px;
 }
 
-#activity-area{
-    border: green
+#activity-area {
+    border: green;
+    padding-left: 160px;
 }
 
 li {
@@ -29,6 +33,12 @@ li {
     align-content: center;
     text-align: center;
     filter: drop-shadow(0px 1px 3px black);
+    max-width: 1050px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    
 }
 
 p {
@@ -41,13 +51,11 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;
     color: white;
-    background-color: cornflowerblue;
-   
     left: 300px;
     text-align: center;
 }
 
-h2{
+h2 {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     
@@ -60,33 +68,52 @@ body {
     background-image:url(https://cff2.earth.com/uploads/2017/11/08174338/How-ice-forms-inside-of-clouds.jpg);
 }
 
-a{
+a {
     color: red;
     font-size: large;
     font-weight: 200;
     border: solid red;
+    border-width: 4px;
     background-color: black;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 4px;
+    margin-right: 200px;
 }
 
-.buttonDiv{
+.buttonDiv {
     display: flex;
     justify-content: space-evenly;
-    
     width: auto;
 }
 
-button{
+button {
     background-color: whitesmoke;
     border-radius: 10px;
     border:grey;
     font-size: 15px;
 }
 
-input#activity-submit{
+input#activity-submit {
     height: 30px;
     font-size: 16px;
     background-color: whitesmoke;
     border-radius: 10px;
     border:grey; 
+    box-shadow: inset 0px 0px 4px rgba(0,0,0,0.9);
+}
+
+input#activity-title {
+    border-radius: 10px;
+    max-height: 15px;
+}
+
+input#activity-creator {
+    border-radius: 10px;
+    max-height: 15px;
+}
+
+textarea#activity-description {
+    border-radius: 10px;
+    filter: drop-shadow(0px 1px 2px black);
+    font-family: Arial, Helvetica, sans-serif;
 }
