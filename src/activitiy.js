@@ -37,7 +37,7 @@ class Activity {
         
         p1.innerText = `Title: ${this.title}`
         p2.innerText = `Description: ${this.description}`
-        p3.innerText = `Creator:${this.creator}`
+        p3.innerText = `Creator: ${this.creator}`
     
         li.append(p1, p2, p3)
         div.append(li)
