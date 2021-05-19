@@ -5,10 +5,12 @@ const container = document.getElementById("container")
 const ul = document.getElementById("activity-area")
 const sortButton = document.getElementById("sort")
 sortButton.addEventListener("click", handleSort)
-// const searchButton = document.getElementById("searchButton")
-// searchButton.addEventListener("click", handleSearch)
 const randomButton = document.getElementById("random")
 randomButton.addEventListener("click", handleRandom)
+const searchButton = document.getElementById("searchButton")
+searchButton.addEventListener("click", (e) => quicksearch(e))
+
+
 
 document.addEventListener("DOMContentLoaded", init)
 
@@ -45,6 +47,7 @@ function getAllActivities() {
     // the result from baseURL is NOT JSON it's a String
     .then(r => r.json())
     .then(data => {
+        ul.innerHTML = ""
         data.forEach(a => {
             let activity = new Activity(a.id, a.title, a.description, a.creator)
             activity.putActivityOnDom()
@@ -79,35 +82,22 @@ function handleSort(e) {
       })
 }
 
-// function handleSearch(e) {
-//     let inputValue = document.getElementById("search").value
-//     let filteredArray = Activity.all.filter(a => {
-//         return a.creator.toUpperCase() === inputValue.toUpperCase()
-//     })
-    
-//         ul.innerHTML = ""
-
-//         filteredArray.forEach(a => {
-//             a.putActivityOnDom()
-//         })
-        
-// }
 
 function handleRandom() {
     let item = Activity.all[Math.floor(Math.random() * Activity.all.length)] 
-    ul.innerHTML = ""    
+    ul.innerHTML = ""  
     item.putActivityOnDom()
 }
 
 
 function deleteActivity(e) {
     e.preventDefault()
-
+    
     let id = e.target.dataset.id
     
     fetch(baseUrl + `/${id}`, {
         method: "DELETE",
-
+        
     })
     
     .then (resp => {
@@ -116,7 +106,22 @@ function deleteActivity(e) {
     .then(data => {
         const activity = Activity.all.find(activity => activity.id === data.id)
         activity.container.remove()
-        
-        })
+    })
 }
+
+
+function quicksearch(){
+    const inputValue = document.getElementById("searchBar").value
+    const filteredActivities = Activity.all.filter(a => {
+        return (a.creator.toLowerCase() === inputValue.toLowerCase()
+        )
+    })
+    ul.innerHTML = "" 
+    filteredActivities.map(a => {
+        a.putActivityOnDom()
+    })
+}
+
+
+
 

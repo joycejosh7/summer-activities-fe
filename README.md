@@ -1,6 +1,6 @@
 # summer-activities-fe
 
-This is my list of summer activities. I want to be able to add activities with the family member who came up with the idea attached(creator). I want to be able to sort the list by title alphabetically or search by creator. My main feature is to be able to randomly pull one activity and show it, almost like pulling a paper out of a hat.
+This is my list of summer activities. I want to be able to add activities with the family member who came up with the idea attached(creator). My main feature is to be able to randomly pull one activity and show it, almost like pulling a paper out of a hat.
 
 This was created using a little HTML and a lot of Javascript with a Rails API backend.
 
